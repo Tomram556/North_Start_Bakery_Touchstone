@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Star Bakery | Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+<header>
+    <div class="brand">
+        <img src="media/bakery-logo_c.png"
+             alt="North Star Bakery logo"
+             width="300">
+        <h1>North Star Bakery</h1>
+    </div>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" aria-current="page">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>Our Products</h2>
+        <p>
+            Explore North Star Bakery's selection of handcrafted breads,
+            pastries, and cakes. Our baked goods are prepared with care
+            for everyday treats, family gatherings, and special occasions.
+        </p>
+    </section>
+    <section id="menu-favorites">
+        <h2>Browse the Menu and Save Favorites</h2>
+        <p>
+            Filter the menu by category and select "Save to Favorites" for the items
+            you love. Your favorites are remembered on this device, and you can add
+            them to a pre-order request on the Contact page.
+        </p>
+        <div class="filter-buttons" role="group" aria-label="Filter menu by category">
+            <button type="button" class="filter-button" data-category="all">All Items</button>
+            <button type="button" class="filter-button" data-category="breads">Breads</button>
+            <button type="button" class="filter-button" data-category="pastries">Pastries</button>
+            <button type="button" class="filter-button" data-category="cakes">Cakes</button>
+        </div>
+        <p id="filter-status" class="filter-status" aria-live="polite"></p>
+        <div class="menu-layout">
+            <ul id="product-list" class="product-list">
+                <noscript><li>Turn on JavaScript to browse the interactive menu.</li></noscript>
+            </ul>
+            <aside class="favorites-panel" aria-labelledby="favorites-heading">
+                <h3 id="favorites-heading">My Favorites (<span id="favorites-count">0</span>)</h3>
+                <p id="favorites-empty">You haven't saved any favorites yet.</p>
+                <ul id="favorites-list" aria-live="polite"></ul>
+                <p id="favorites-total" class="price"></p>
+                <div class="panel-actions">
+                    <a href="contact.html" class="button-link">Request a Pre-Order</a>
+                    <button type="button" id="clear-favorites" class="secondary-button">Clear Favorites</button>
+                </div>
+            </aside>
+        </div>
+    </section>
+    <section>
+        <h2>Our Signature Loaf</h2>
+        <figure>
+            <img src="media/bakery-signature-loaf_c.png"
+                 alt="North Star Bakery signature artisan loaf"
+                 width="500">
+            <figcaption>
+                Our Signature Loaf, a handcrafted favorite from North Star Bakery.
+            </figcaption>
+        </figure>
+    </section>
+    <div class="card-row">
+        <section>
+            <h2>Breads</h2>
+            <img src="media/bakery-bread_c.png"
+                 alt="Freshly baked bread from North Star Bakery"
+                 width="500">
+            <h3>Artisan Breads</h3>
+            <p>
+                Freshly baked breads made for meals, gatherings, or simply
+                enjoying at home.
+            </p>
+            <p class="price">Price range: $5-$12</p>
+        </section>
+        <section>
+            <h2>Pastries</h2>
+            <p>
+                Choose from a rotating selection of handmade pastries,
+                perfect for breakfast, an afternoon treat, or sharing.
+            </p>
+            <p class="price">Price range: $3-$8</p>
+        </section>
+        <section>
+            <h2>Cakes</h2>
+            <p>
+                Our cakes are available for celebrations and special occasions.
+                Contact the bakery to discuss flavors, sizes, and pre-order options.
+            </p>
+            <p class="price">Price range: $25-$65</p>
+        </section>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2026 North Star Bakery. All rights reserved.</p>
+    <p>Freshly baked for our community.</p>
+</footer>
+</body>
+</html>
