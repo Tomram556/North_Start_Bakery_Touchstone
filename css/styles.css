@@ -1,0 +1,569 @@
+/* =========================================================
+   North Star Bakery - Main Stylesheet
+   Touchstone 3: Visual Design and Responsive Layout
+   Mobile-first: base styles target small screens,
+   media queries add layout for larger screens.
+   ========================================================= */
+
+/* ---------- Design system (colors, fonts, spacing) ---------- */
+:root {
+    /* Color palette (4 colors) */
+    --cream: #FFF8F0;     /* page background, light text on dark areas */
+    --brown: #6B3E26;     /* header, footer, headings, buttons */
+    --peach: #D88C5A;     /* accents: borders, active/hover states */
+    --charcoal: #2F2A26;  /* body text */
+
+    /* Fonts (2 families) */
+    --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+    --font-body: "Lato", Arial, Helvetica, sans-serif;
+
+    /* Spacing scale */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+
+    --radius: 8px;
+}
+
+/* ---------- Base / reset ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cream);
+    color: var(--charcoal);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Media never overflows its container (fixes fixed width="500"/"600" on phones) */
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin: 0 0 var(--space-xs);
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brown);
+    padding-bottom: 0.25rem;
+    border-bottom: 3px solid var(--peach);
+    display: inline-block;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin-top: var(--space-sm);
+}
+
+p {
+    margin: 0 0 var(--space-sm);
+}
+
+/* Price lines stand out for quick scanning */
+.price {
+    font-weight: 700;
+    color: var(--brown);
+}
+
+/* ---------- Header and navigation ---------- */
+header {
+    background-color: var(--brown);
+    color: var(--cream);
+    padding: var(--space-sm);
+    display: flex;
+    flex-direction: column;     /* stacked on small screens */
+    align-items: center;
+    gap: var(--space-sm);
+    text-align: center;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.brand img {
+    width: 110px;
+    border-radius: 50%;
+    background-color: var(--cream);
+    padding: 4px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs);
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 0.9rem;     /* large tap targets for mobile */
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+}
+
+nav a:hover,
+nav a:focus {
+    border-color: var(--peach);
+}
+
+/* Current page link */
+nav a[aria-current="page"] {
+    background-color: var(--peach);
+    color: var(--charcoal);
+}
+
+/* ---------- Main content layout ---------- */
+main {
+    display: flex;
+    flex-direction: column;     /* one column on small screens */
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-sm);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: var(--cream);
+    border: 1px solid var(--peach);
+    border-left: 6px solid var(--peach);
+    box-shadow: 0 2px 6px rgba(107, 62, 38, 0.12);   /* soft brown shadow */
+    border-radius: var(--radius);
+    padding: var(--space-md);
+}
+
+/* Groups of related sections (cards) */
+.card-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.card-row > * {
+    flex: 1 1 0;
+}
+
+.card-row section img {
+    margin-bottom: var(--space-sm);
+    border-radius: var(--radius);
+}
+
+/* Images and figures inside sections */
+section img,
+section video,
+figure img {
+    border-radius: var(--radius);
+    margin-top: var(--space-xs);
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    font-style: italic;
+    color: var(--brown);
+    margin-top: var(--space-xs);
+}
+
+/* ---------- Form ---------- */
+form {
+    max-width: 640px;
+}
+
+fieldset {
+    border: 2px solid var(--peach);
+    border-radius: var(--radius);
+    padding: var(--space-sm) var(--space-md);
+    margin: 0;
+}
+
+legend {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--brown);
+    padding: 0 var(--space-xs);
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--charcoal);
+    background-color: var(--cream);
+    border: 1px solid var(--charcoal);
+    border-radius: 4px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--peach);
+    outline-offset: 1px;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+    background-color: var(--brown);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+button:hover,
+button:focus {
+    background-color: var(--peach);
+    color: var(--charcoal);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background-color: var(--brown);
+    color: var(--cream);
+    padding: var(--space-md) var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* =========================================================
+   Larger screens (tablets and desktops)
+   ========================================================= */
+@media (min-width: 768px) {
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    /* Header: logo/title on the left, nav on the right */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--space-sm) var(--space-lg);
+        text-align: left;
+    }
+
+    .brand {
+        flex-direction: row;
+        gap: var(--space-sm);
+    }
+
+    .brand img {
+        width: 90px;
+    }
+
+    nav ul {
+        justify-content: flex-end;
+    }
+
+    main {
+        padding: var(--space-lg);
+        gap: var(--space-lg);
+    }
+
+    /* Cards sit side by side instead of stacking */
+    .card-row {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    /* Wider inputs don't need to fill the screen; button sized to text */
+    button {
+        width: auto;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--space-md) var(--space-lg);
+    }
+}
+
+/* =========================================================
+   Touchstone 4: Interactive menu, favorites, and form feedback
+   (uses the same four-color palette; error red is a status color only)
+   ========================================================= */
+
+/* Shared secondary button and link-styled button */
+.secondary-button,
+.button-link {
+    display: inline-block;
+    width: auto;
+    padding: 0.6rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: var(--radius);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.secondary-button {
+    background-color: var(--cream);
+    color: var(--brown);
+    border: 2px solid var(--brown);
+}
+
+.button-link {
+    background-color: var(--brown);
+    color: var(--cream);
+    border: 2px solid var(--brown);
+}
+
+.secondary-button:hover,
+.secondary-button:focus,
+.button-link:hover,
+.button-link:focus {
+    background-color: var(--peach);
+    color: var(--charcoal);
+    border-color: var(--peach);
+}
+
+/* Filter buttons */
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xs);
+}
+
+.filter-button {
+    width: auto;
+    padding: 0.5rem 1rem;
+    background-color: var(--cream);
+    color: var(--brown);
+    border: 2px solid var(--brown);
+    border-radius: 999px;
+}
+
+.filter-button.active {
+    background-color: var(--brown);
+    color: var(--cream);
+}
+
+.filter-status {
+    font-style: italic;
+}
+
+/* Menu cards + favorites panel */
+.menu-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.product-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.product-card {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    border: 1px solid var(--peach);
+    border-radius: var(--radius);
+    background-color: var(--cream);
+}
+
+.product-card h3 {
+    margin-top: 0;
+}
+
+.product-card .favorite-button {
+    margin-top: auto;
+    width: 100%;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.95rem;
+    background-color: var(--cream);
+    color: var(--brown);
+    border: 2px solid var(--brown);
+}
+
+.product-card.is-favorite {
+    border: 2px solid var(--brown);
+    box-shadow: inset 0 0 0 3px var(--peach);
+}
+
+.product-card.is-favorite .favorite-button {
+    background-color: var(--brown);
+    color: var(--cream);
+}
+
+.product-category {
+    margin: 0 0 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brown);
+}
+
+.favorites-panel {
+    padding: var(--space-sm) var(--space-md);
+    border: 2px dashed var(--peach);
+    border-radius: var(--radius);
+}
+
+.favorites-panel h3 {
+    margin-top: 0;
+}
+
+.favorites-panel ul {
+    padding-left: 1.2rem;
+}
+
+.panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+/* Form feedback */
+.error-message {
+    display: block;
+    min-height: 1.2em;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #A12A1E;
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+    border: 2px solid #A12A1E;
+}
+
+.form-status,
+.notice {
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    border-left: 6px solid var(--peach);
+    background-color: var(--cream);
+    font-weight: 700;
+}
+
+.form-status.error {
+    border-left-color: #A12A1E;
+    color: #A12A1E;
+}
+
+.form-status.success {
+    border-left-color: var(--brown);
+    color: var(--brown);
+}
+
+.notice p {
+    margin-bottom: var(--space-xs);
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.checkbox-row input {
+    width: auto;
+}
+
+.checkbox-row label {
+    display: inline;
+    margin: 0;
+    font-weight: 400;
+}
+
+@media (min-width: 768px) {
+    .product-card {
+        flex: 1 1 calc(50% - var(--space-sm));
+    }
+
+    .menu-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .product-list {
+        flex: 3 1 0;
+    }
+
+    .favorites-panel {
+        flex: 1 1 0;
+        position: sticky;
+        top: var(--space-sm);
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-card {
+        flex: 1 1 calc(33.333% - var(--space-sm));
+        max-width: calc(33.333% - var(--space-sm) * 2 / 3);
+    }
+}
+
+.notice,
+.form-status {
+    margin: 0 0 var(--space-sm);
+}
